@@ -11,7 +11,7 @@ namespace Composition2.Entities
         public DateTime Moment { get; set; }
         public OrderSatus Status { get; set; }
         public Client Client { get; set; }
-        public List<OrderItem> Itens { get; set; } = new List<OrderItem>();
+        public List<OrderItem> Items { get; set; } = new List<OrderItem>();
 
         public Order()
         {
@@ -26,22 +26,21 @@ namespace Composition2.Entities
 
         public void AddItem(OrderItem item)
         {
-            Itens.Add(item);
+            Items.Add(item);
         }
 
         public void RemoveItem(OrderItem item)
         {
-            Itens.Remove(item);
+            Items.Remove(item);
         }
 
         public double Total()
         {
             double sum = 0.0;
-            foreach(OrderItem i in Itens)
+            foreach(OrderItem item in Items)
             {
-                sum += i.SubTotal();
+                sum += item.SubTotal();
             }
-
             return sum;
         }
 
@@ -53,7 +52,7 @@ namespace Composition2.Entities
             sb.AppendLine("Order status: " + Status);
             sb.AppendLine("Client : " + Client);
             sb.AppendLine("Order items:");
-            foreach (OrderItem item in Itens)
+            foreach (OrderItem item in Items)
             {
                 sb.AppendLine(item.ToString());
             }

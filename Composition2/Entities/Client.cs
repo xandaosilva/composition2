@@ -29,7 +29,6 @@ namespace Composition2.Entities
             sb.Append(BirthDate.ToString("(dd/MM/yyyy)"));
             sb.Append(" - ");
             sb.Append(Email);
-
             return sb.ToString();
         }
     }
